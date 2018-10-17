@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>asd</title>
+
+	<!-- <script type="text/javascript" src="js/canvas.js"></script> -->
+</head>
+<body>
+	<img src="img/left.png" id="image">
+	<canvas id="drawing" width="400" height="400" style="margin: 0 auto">
+	</canvas>
+	<script type="text/javascript">
+		var drawing = document.getElementById("drawing");
+		if (drawing.getContext) {
+			var context = drawing.getContext("2d");
+			//context.strokeStyle = "rgba(0,0,255,0.5)";
+			//var pi = 3.1415926;
+/*			context.fillStyle = "#ff0000";
+			context.fillRect(10, 10, 50, 50);
+			//红色矩形
+			context.fillStyle = "rgba(0,0,255,0.5)";
+			context.fillRect(30,30,50,50);
+			//蓝色半透明矩形
+
+			context.strokeStyle = "#ff0000";
+			context.strokeRect(60,60,50,50);
+			//红色矩形框
+			context.strokeStyle = "rgba(0,0,255,0.5)";
+			context.strokeRect(80,80,50,50);
+			//蓝色半透明矩形框
+
+			context.clearRect(40,40,10,10);*/
+			/*context.beginPath();
+
+			context.arc(200,150,100,0,2*Math.PI,false);
+			context.moveTo(305,150);
+			context.arc(200,150,105,0,2*Math.PI,false);
+			context.moveTo(200,148);
+			context.arc(200,150,2,0,2*Math.PI,false);
+			// 内圆和外园
+			context.moveTo(200,150);
+			context.lineTo(200,100);
+
+			context.moveTo(200,150);
+			context.lineTo(150,150);
+
+			context.moveTo(200,150);
+			context.rect(200,150,50,50);
+			context.moveTo(150,150);
+			context.arcTo(150,100,200,100,50);
+
+			context.moveTo(150,150);
+			context.bezierCurveTo(160,180,170,190,200,200);
+
+			context.moveTo(250,150);
+			context.quadraticCurveTo(237.5,125,200,100);*/
+
+			/*context.moveTo(20,20);           // 创建开始点
+			context.lineTo(100,20);          // 创建水平线
+			context.arcTo(150,20,150,70,50); // 创建弧
+			context.lineTo(150,120);         // 创建垂直线
+			context.stroke();                // 进行绘制*/
+
+			/*context.stroke();
+			
+			context.font = "bold 20px '微软雅黑'";
+			context.textAlign = "start";
+			context.textBaseLine = "top";
+			context.fillText("爷傲奈我何",30,30);
+*/
+
+			//旋转坐标
+			/*context.beginPath();
+
+			context.arc(200,200,110,0,2*Math.PI,false);
+			context.moveTo(300,200);
+			context.arc(200,200,100,0,2*Math.PI,false);
+
+			context.translate(200,200);
+
+			context.rotate(0.25*Math.PI);
+
+			context.moveTo(0,0);
+			context.lineTo(-50,0);
+
+			context.moveTo(0,0);
+			context.lineTo(0,-65);
+
+			context.stroke();*/
+
+			// restore 和 save的使用 
+			/*context.fillStyle = "#ff0000";
+			context.save();
+
+			context.fillStyle = "#00ff00";
+			context.translate(100,100);
+			context.save();
+
+			context.fillStyle = "#0000ff";
+			context.fillRect(0,0,100,200);
+
+			context.restore();
+			context.fillRect(10,10,100,200);
+
+			context.restore();
+			context.fillRect(0,0,100,200);
+*/
+			//绘制图像
+			var image = document.getElementById("image");
+			context.drawImage(image,10,10);
+		}
+	</script>
+</body>
+</html>

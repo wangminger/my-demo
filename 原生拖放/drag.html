@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>drag</title>
+</head>
+<body>
+	<img src="img/left.png" />
+	<textarea style="resize: none; width: 400px; height: 400px;"></textarea>
+	<div>
+		<p>该文本进用于测试</p>
+		<p>该文本进用于测试2</p>
+	</div>
+
+	<div id="droptarget" style="width: 400px; height: 400px; background: rgba(255,255,0,0.5);" draggable = "true"></div>
+	<video width="1280" height="720" controls="controls" poster="img/summer.jpg">
+		<source src="video/1.mp4" type="video/mp4">		
+	</video>
+	<script type="text/javascript">
+		/*var context = document.getElementsByTagName("p");
+		var contextTextNode = context.textNode;
+		contextTextNode.addEventListener("dragstart", function(event) {
+		}, false);*/
+
+
+
+		var droptarget = document.getElementById("droptarget");
+
+		droptarget.addEventListener("dragover", function(event) {
+			event.preventDefault();
+		}, false);
+
+		droptarget.addEventListener("dragenter", function(event) {
+			event.dataTransfer.setData("text", "该文本进用于测试");
+			var text = document.createTextNode(event.dataTransfer.getData("text"));
+			var p = document.createElement("p");
+			p.appendChild(text);
+			droptarget.appendChild(p);
+			/*var text = event.dataTransfer.getData("text");
+			alert(text);*/
+		}, false);
+	</script>
+
+</body>
+</html>
