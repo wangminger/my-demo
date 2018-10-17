@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>简易js年历</title>
+	<style type="text/css">
+		#wrap {
+			padding: 0 0 5px 5px;
+			margin: 0 auto;
+			background: #a6a6a6;
+			height: auto;
+			width: 420px;
+		}
+		#month {
+			list-style: none;
+			overflow: hidden;
+			padding: 0;
+			margin: 0;
+		}
+		#month li {
+			float: left;
+			width: 100px;
+			height: 100px;
+			display: block;
+			margin: 5px 5px 0 0;
+			background: #404040;
+			padding: 0;
+			color: white;
+			text-align: center;
+			font: 30px "微软雅黑";
+			line-height: 50px;
+			
+		}
+		#month .current {
+			width: 98px;
+			height: 98px;
+			color: #ff3399;
+			background: white;
+			cursor: pointer;
+			border: 1px black solid;
+		}
+		#month li strong {
+			display: block;
+		}
+		#festival {
+			list-style: none;
+			width: 413px;
+			border: 1px white solid;
+			padding: 0;
+			margin: 10px 0 0 0;
+			background: #d9d9d9;
+
+		}
+		#festival li {
+			display: none;
+		}
+		label {
+			font-weight: bolder;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var mth = document.getElementById("month").getElementsByTagName("li"),
+				festv = document.getElementById("festival").getElementsByTagName("li");
+			for (var i = 0; i < mth.length; i++) {
+				mth[i].index = i;
+				mth[i].onmouseover = function() {
+					for (var n = 0; n < mth.length; n++) {
+						mth[n].className = "";
+					}
+					for (var n = 0; n < festv.length; n++) {
+						festv[n].removeAttribute("style");
+					}
+					mth[this.index].className = "current";
+					festv[this.index].style.display = "block";
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="month">
+			<li class="current">
+				<strong>1</strong>
+				JUN
+			</li>
+			<li>
+				<strong>2</strong>
+				Feb
+			</li>
+			<li>
+				<strong>3</strong>
+				Mar
+			</li>
+			<li>
+				<strong>4</strong>
+				Apr
+			</li>
+			<li>
+				<strong>5</strong>
+				May
+			</li>
+			<li>
+				<strong>6</strong>
+				Jun
+			</li>
+			<li>
+				<strong>7</strong>
+				Jul
+			</li>
+			<li>
+				<strong>8</strong>
+				Aug
+			</li>
+			<li>
+				<strong>9</strong>
+				Sep
+			</li>
+			<li>
+				<strong>10</strong>
+				Oct
+			</li>
+			<li>
+				<strong>11</strong>
+				Nov
+			</li>
+			<li>
+				<strong>12</strong>
+				Dec
+			</li>
+		</ul>
+		<ul id="festival">
+			<li style="display: block;">
+				<label>1月节日</label>
+				<p>元旦节：1月1日至3日放假3天</p>
+			</li>
+			<li>
+				<label>2月节日</label>
+				<p>春节：2月15日至22日放假7天</p>
+			</li>
+			<li>
+				<label>3月节日</label>
+				<p>妇女节：3月8日</p>
+			</li>
+			<li>
+				<label>4月节日</label>
+				<p>清明节：4月3日至5日放假3天</p>
+			</li>
+			<li>
+				<label>5月节日</label>
+				<p>劳动节：5月1日至3日放假3天</p>
+			</li>
+			<li>
+				<label>6月节日</label>
+				<p>端午节：6月18日至20日放假3天</p>
+			</li>
+			<li>
+				<label>7月节日</label>
+				<p>无法定节假日</p>
+			</li>
+			<li>
+				<label>8月节日</label>
+				<p>七夕节：单身狗不过</p>
+			</li>
+			<li>
+				<label>9月节日</label>
+				<p>中秋节：9月10日至12日放假3天</p>
+			</li>
+			<li>
+				<label>10月节日</label>
+				<p>国庆节：10月1日至7日放假7天</p>
+			</li>
+			<li>
+				<label>11月节日</label>
+				<p>光棍节：11月11日</p>
+			</li>
+			<li>
+				<label>12月节日</label>
+				<p>准备过年节</p>
+			</li>
+
+		</ul>
+	</div>
+</body>
+</html>

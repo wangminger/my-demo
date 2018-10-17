@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>弹出层效果</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		#overplay {
+			width: 400px;
+			height: 200px;
+			z-index: 2;
+			background: white;
+			border: 3px red solid;
+			left: 50%;
+			top: 50%;
+			position: absolute;
+			margin: -103px 0 0 -203px;
+		}
+		#overplay h2 {
+			border-bottom: red 2px solid;
+			background: #Fc0;
+			text-align: right;
+			display: block;
+			font-size: 12px;
+			font-weight: bold;
+			padding: 5px;
+		}
+		#overplay h2 span {
+			color: #f90;
+    		cursor: pointer;
+    		background: #fff;
+    		border: 1px solid #f90;
+    		padding: 0 2px;
+		}
+		#win {
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0, 0.3);
+			position: absolute; 
+			z-index: 1;
+		}
+		button {
+			cursor: pointer;
+		}
+		/*#close {
+			width: 30px;
+			height: 30px;
+			background: white;
+			border: yellow 1px solid;
+			right: 0;
+			text-align: center;
+			line-height: 30px;
+		}*/
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var btn = document.getElementsByTagName("button")[0],
+				win = document.getElementById("win"),
+				overplay = document.getElementById("overplay"),
+				close = document.getElementById("close");
+			btn.onclick = function() {
+				win.style.display = "block";
+				overplay.style.display = "block";
+			};
+			close.onclick = function() {
+				win.style.display = "none";
+				overplay.style.display = "none";
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div id="win" style="display: none;"></div>
+	<div id="overplay" style="display: none;">
+		<h2>
+			<span id="close">×</span>
+		</h2>
+	</div>
+	<center>
+		<button>弹出窗口</button>
+	</center>
+	
+</body>
+</html>

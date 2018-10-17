@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>网页换肤</title>
+	<link rel="stylesheet" type="text/css" href="style/02/red.css">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		#wrap {
+			width: 607px;
+			height: 100px;
+			margin: 0 auto;
+		}
+		#skin {
+			margin: 10px 0;
+			display: block;
+			width: auto;
+			height: 20px;
+		}
+		#red, #green, #blue {
+			cursor: pointer;
+			width: 10px;
+			height: 10px;
+			float: left;
+			display: block;
+			list-style: none;
+		}
+		#red {
+			border: 5px red solid;
+		}
+		#green {
+			border: 5px green solid;
+			margin-left: 30px;
+		}
+		#blue { 
+			border:5px blue solid;
+			margin-left: 30px;
+		}
+		#nav {
+			width: auto;
+			display: block;
+			height: 40px;
+			border: 1px white solid;
+
+		}
+		#nav li {
+			display: block;
+			float: left;
+			border-right: 1px solid white;
+			width:100px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+		}
+		#nav li:last-child {
+			border-right: 0;
+		}
+		#nav li a:link, a:visited {
+			color: white;
+			text-decoration: none;
+		}
+		#nav li a:hover, a:focus, a:active {
+			text-decoration: underline;
+			color: white;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			/*var doc = document,
+	 		link = doc.getElementsByTagName("link"),
+		    red = doc.getElementById("red"),
+		    green = doc.getElementById("green"),
+		    blue = doc.getElementById("blue");
+			
+			red.onclick = function() {
+				link[0].setAttribute("href", "style/02/red.css");
+			};
+			green.onclick = function() {
+				link[0].setAttribute("href", "style/02/green.css");
+			};
+			blue.onclick = function() {
+				link[0].setAttribute("href", "style/02/blue.css");
+			};*/
+
+			var doc = document,
+				link = doc.getElementsByTagName("link"),
+			    btn = doc.getElementById("skin").getElementsByTagName("li");
+			for (var i = 0; i < btn.length; i++) {
+				btn[i].onclick = function() {
+					for (var p in btn) {
+						btn[p].className = ""
+					}
+					this.className = "current";
+					var src = "style/02/" + this.id + ".css";
+					link[0].href = src;
+				}
+			}
+	
+		}
+		
+		
+
+
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="skin">
+			<li id="red"></li>
+			<li id="green"></li>
+			<li id="blue"></li>
+		</ul>
+		<ul id="nav">
+			<li><a href="">新闻</a></li>
+			<li><a href="">娱乐</a></li>
+			<li><a href="">体育</a></li>
+			<li><a href="">电影</a></li>
+			<li><a href="">音乐</a></li>
+			<li><a href="">旅游</a></li>
+		</ul>
+	</div>
+
+</body>
+</html>

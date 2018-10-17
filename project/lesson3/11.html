@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>网页计算器</title>
+	<style type="text/css">
+		#wrap {
+			margin: 0 auto;
+			width: 450px;
+			background: rgb(252,252,252);
+			text-align: center;
+			border: 1px solid black;
+		}
+		#wrap ul {
+			padding: 0 0 10px 10px;
+			list-style: none;
+			background: rgb(230,230,230);
+			overflow: hidden;
+			position: relative;
+			margin-top: 0;
+			margin-bottom: 0; 
+		}
+		#wrap ul li {
+			width: 100px;
+			height: 100px;
+			margin: 10px 10px 0 0;
+			float: left;
+		}
+		#wrap ul li a {
+			display: block;
+			width: 100px;
+			height: 100px;
+			background: rgb(252,252,252);
+			text-align: center;
+			line-height: 100px;
+			color: rgb(50,50,50);
+			text-decoration: none;
+			font-size: 50px;
+			
+		}
+		#wrap ul li a:hover {
+			opacity: 0.5;
+			
+		}
+
+		#wrap ul li.count a {
+			color: rgb(0,172,194);
+		}
+		#wrap ul li.count a:hover {
+			opacity: 0.5;
+		}
+
+		#wrap ul li.zero {
+			width: 210px;
+		}
+		#wrap ul li.zero a {
+			width: 210px;
+		}
+		#wrap ul li.zero a:hover {
+			opacity: 0.5;
+		}
+
+		#wrap ul li.equal {
+			right: 0;
+			top: 330px;
+			height: 210px;
+			position: absolute;
+			color: rgb(0,172,194);
+		}
+		#wrap ul li.equal a {
+			height: 210px;
+			line-height: 210px;
+			color: rgb(0,172,194);
+
+		}
+		#wrap ul li.equal a:hover {
+			opacity: 0.5;
+
+		}
+
+		#wrap #hsty {
+			width: 430px;
+			height: 30px;
+			padding: 10px;
+			border: 0;
+			text-align: right;
+			font-size: 20px;
+		}
+		#wrap #cur {
+			width: 430px;
+			height: 50px;
+			padding: 0 10px;
+			border: 0;
+			text-align: right;
+			font-size: 40px;
+		}
+
+	</style>
+</head>
+<body>
+	 <div id="wrap">
+	 	<input type="text" id="hsty" value="0">
+	 	<input type="text" id="cur" value="0">
+	 	<ul>
+	 		<li class="count">
+	 			<a href="javascript:;">c</a>
+	 		</li>
+	 		<li class="count">
+	 			<a href="javascript:;">÷</a>
+	 		</li>
+	 		<li class="count">
+	 			<a href="javascript:;">×</a>
+	 		</li>
+	 		<li class="count">
+	 			<a href="javascript:;">%</a> 
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">7</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">8</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">9</a>
+	 		</li>
+	 		<li class="count">
+	 			<a href="javascript:;">-</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">4</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">5</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">6</a>
+	 		</li>
+	 		<li class="count">
+	 			<a href="javascript:;">+</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">1</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">2</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">3</a>
+	 		</li>
+	 		<li class="equal">
+	 			<a href="javascript:;">=</a>
+	 		</li>
+	 		<li class="zero">
+	 			<a href="javascript:;">0</a>
+	 		</li>
+	 		<li>
+	 			<a href="javascript:;">.</a>
+	 		</li>
+	 	</ul>
+	 </div>
+
+
+<!-- 计算器功能
+		1、点击数字按钮，则cur显示当前的数字，通过字符串的形式进行加减。
+		2、点击计算按钮+-*/ 则将cur值添加到history中，并将cur值变为输入的符号。加减号只能输入一次，然后就将
+	
+ -->
+	 <script type="text/javascript">
+	 	window.onload = function() {
+	 		var allbtn = document.getElementById("wrap").getElementsByTagName("a"),
+	 			curshow = document.getElementById("cur"),
+	 			histshow = document.getElementById("hsty");
+	 		for (var i = 0; i < allbtn.length; i++) {
+	 			allbtn[i].onclick = function() {
+	 				switch (this.innerHTML) {
+	 					case "+":
+	 						count("+");
+	 						break;
+	 					case "=":
+	 						equal("=");
+	 						break;
+	 					case "-":
+	 						count("-");
+	 						break;
+	 					case "×":
+	 						count("*  ");
+	 						break;
+	 					case "÷":
+	 						count("/");
+	 						break;
+	 					case "%":
+	 						count("%");
+	 						break;
+
+	 					case "c":
+	 						curshow.value = "0";
+	 						histshow.value = "0";
+	 						break;
+
+	 					default:
+	 						curshow.value += this.innerHTML;
+	 						curshow.value = curshow.value.replace(/^[0]/, "");
+							//curshow.value.replace(/^[\+]/, ""); 						
+	 				}
+	 			}
+	 			
+	 		}
+
+	 		function count(tag) {
+	 			histshow.value += curshow.value.replace(/^[0]/, "");
+	 			//histshow.value = histshow.value.replace(/^[0]/, ""); 
+	 			curshow.value = tag;
+
+	 		}
+	 		function equal(equ) {
+	 			histshow.value += curshow.value;
+	 			curshow.value = eval(histshow.value);
+	 		}
+	 	}
+	 </script>
+</body>
+</html>

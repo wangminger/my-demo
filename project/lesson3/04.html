@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>输入两个数，比较大小</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+		input {
+			width: 50px;
+			height: 20px;
+			background: #f0f0f0;
+			border: 1px solid #ccc;
+		}
+		strong {
+
+			padding: 0 10px;	
+		}
+		button {
+			margin: 0 10px;			
+		}
+		span {
+			font-weight: 700;
+			color: red; 
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var input = document.getElementsByTagName("input"),
+				btn = document.getElementsByTagName("button")[0],
+				show = document.getElementsByTagName("span")[0];
+			btn.onclick = function() {
+				var va1 = parseInt(input[0].value),
+					va2 = parseInt(input[1].value),
+					result = Math.max(va1,va2);
+				show.innerHTML = result;
+
+			}	
+		}
+		
+	</script>
+</head>
+<body>
+	<input type="text">
+	<strong>vs</strong>
+	<input type="text">
+	<button>最大的数是 »</button>
+	<span>?</span>
+</body>
+</html>

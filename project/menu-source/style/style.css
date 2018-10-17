@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+#wrap {
+	margin: 0 auto;
+	padding: 2px;
+	width: 400px;
+	height: auto;
+	border: rgba(0,0,0,0.1) solid 15px;
+	/*background: rgba(255,218,0,1);*/
+	border-radius: 1px;
+	font: "华文楷体";
+}
+.sheetoff {
+	
+	border: white 1px solid;
+	text-align: left;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	/*background: rgb(76,192,231);*/
+	cursor: pointer;
+}
+.sheetoff dt {
+	padding-left: 40px;
+	height: 25px;
+	line-height: 25px;
+	border: white 1px solid;
+	background: rgb(255,218,0,1);
+}
+.sheeton {
+	
+	border: white 1px solid;
+	text-align: left;
+	height: auto;
+	line-height: 25px;
+	overflow: visible;
+	/*background: rgb(76,192,231);*/
+	cursor: pointer;
+}
+.sheeton dt {
+	font: 10px;
+	padding-left: 40px;
+	height: 25px;
+	line-height: 25px;
+	border: white 1px solid;
+	background: rgb(32,165,249);  /*rgb(76,192,231);*/
+}
+.sheeton dd {
+	padding-left: 40px;
+	height: 25px;
+	line-height: 25px;
+	border: white 1px solid;
+	background: #1affff; /*rgb(76,192,231); rgb(32,165,249);*/
+}

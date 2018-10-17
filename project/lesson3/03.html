@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>累加按钮</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var btn = document.getElementsByTagName("input")[0];
+			btn.onclick = function() {
+				var sum = btn.value;
+				sum = parseInt(sum) + 1;
+				btn.setAttribute("value", sum);
+				alert(sum);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="0">
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>加载后页面累加1</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+			font:700 30px/1.5 arial;
+		}
+	</style>
+	<script type="text/javascript">
+		
+		window.onload = function() {
+			var num =1;
+			function addNumber() {
+				document.body.innerHTML = num;
+				num++;
+			}
+			addNumber();
+			setInterval(addNumber , 1000);
+		}
+
+
+		/*window.onload = function() {
+			var oBody = document.body;
+			var i = 0;
+			setInterval(updateNum, 1000);
+			updateNum();
+
+			function updateNum() {
+				oBody.innerHTML = ++i
+			}
+		}*/
+	</script>
+</head>
+<body>
+
+</body>
+</html>

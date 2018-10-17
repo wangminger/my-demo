@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>倒计时时钟</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		#wrap {
+			width: 300px;
+			padding: 50px;
+			text-align: center;
+			margin: 10px auto;
+			background: #1a1a1a;
+			color: white;
+			position: relative;
+		}
+		input {
+			text-align: center;
+			font-size: 20px;
+			width: 30px;
+			padding: 0 10px;
+		}
+		span {
+			
+			padding: 20px;
+			display: block;
+		}
+		button {
+			width: 283px;
+			height: 50px;
+			background: url(img/btn-1.png);
+			cursor: pointer;
+			border: none;
+		}
+		button.cancel {
+			background-position: 0 -50px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() { 
+			//获取时间
+			function getTime() {
+				var input = document.getElementsByTagName("input"),
+					minute = input[0].value.replace(/^0/, ""),
+					second = input[1].value.replace(/^0/, "");
+				var time = parseInt(minute) * 60 + parseInt(second);
+				input[0].setAttribute("readonly", "readonly");
+				input[1].setAttribute("readonly", "readonly");
+				time = time - 1;
+				if (time<0) {
+					clearInterval(timer);
+					return
+				}
+				input[1].value = trans(time % 60);
+				input[0].value = trans(Math.floor(time / 60));
+			}
+
+			//时间自减
+			
+			//数字转换
+			function trans(a) {
+				return a.toString().replace(/^(\d)$/, "0$1");
+			} 
+
+			var btn = document.getElementsByTagName("button")[0],
+				timer = null;
+			btn.onclick = function() {
+				btn.className = btn.className == "cancel" ? "" : "cancel";
+				btn.className == "cancel" ? (timer = setInterval(getTime, 1000)) : (clearInterval(timer));
+			};
+		}
+			
+/*window.onload = function ()
+{
+	var oCountDown = document.getElementById("countdown");	
+	var aInput = oCountDown.getElementsByTagName("input")[0];
+	var timer = null;
+	
+	aInput.onclick = function ()
+	{
+		this.className == "" ? (timer = setInterval(updateTime, 1000), updateTime()) : (clearInterval(timer));
+		this.className = this.className == '' ? "cancel" : '';	
+	};
+	
+	function format(a)
+	{
+		return a.toString().replace(/^(\d)$/,'0$1')
+	}
+	
+	function updateTime ()
+	{
+		var aSpan = oCountDown.getElementsByTagName("span");
+		var oRemain = aSpan[0].innerHTML.replace(/^0/,'') * 60 + parseInt(aSpan[1].innerHTML.replace(/^0/,''));
+		if(oRemain <= 0)
+		{
+			clearInterval(timer);
+			return
+		}
+		oRemain--;
+		aSpan[0].innerHTML = format(parseInt(oRemain / 60));
+		oRemain %= 60;
+		aSpan[1].innerHTML = format(parseInt(oRemain));
+	}
+}*/
+			
+		
+	</script>
+</head>
+<body>
+	<div id="wrap">
+	<span>
+		<input type="text" value="1">
+		分钟
+		<input type="text" value="50">
+		秒
+	</span>
+	
+	<button></button>
+	</div>
+</body>
+</html>

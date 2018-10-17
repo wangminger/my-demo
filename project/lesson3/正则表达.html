@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>正则表达式</title>
+	<script type="text/javascript">
+		window.onload = function() {
+			
+			var trans = document.getElementsByTagName("button")[0];
+			var rot = document.getElementById("yuanwen");
+			var yiwen = document.getElementById("yiwen");
+			trans.onclick = function() {
+				
+				yiwen.value = rot.value.replace(/[\+]/g, "爱");
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<textarea id="yuanwen" cols="40" rows="10"></textarea>
+	<button>翻译</button>
+	<textarea id="yiwen" cols="40" rows="10"></textarea>
+</body>
+</html>

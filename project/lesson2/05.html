@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>函数传参，改变DIV任意属性的值</title>
+	<style type="text/css">
+		body,p {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			font: 12px;
+			padding-top: 10px;
+		}
+		#outer {
+			width: 300px;
+			margin: 0 auto;
+		}
+		p {
+			margin-bottom: 10px;
+		}
+		label {
+			width: 5em;
+			display: inline-block;text-align: right;
+		}
+		#show {
+			width: 200px;
+			height: 200px;
+			background: black;
+			color: white;
+			margin: 0 auto;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var attrName = document.getElementById("attrName").value,
+				attrValue = document.getElementById("attrValue").value,
+				sure = document.getElementById("sure"),
+				reset = document.getElementById("reset"),
+				show = document.getElementById("show");
+			sure.onclick = function() {
+				show.style[attrName] = attrValue;
+			};
+			reset.onclick = function() {
+				show.removeAttribute("style");
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id="outer">
+		<p><label>attrName:</label><input type="text" name="attrName" value="background" id="attrName"></p> 
+		<p><label>attrValue:</label><input type="text" name="attrValue" value="blue" id="attrValue"></p> 
+		<p><label></label><button id="sure">sure</button> <button id="reset">reset</button> </p> 
+	</div>
+	<div id="show">
+		<section>
+			在上方输入框中输入属性名和属性值点击确定按钮查看效果；
+		</section>
+	</div>
+</body>
+</html>

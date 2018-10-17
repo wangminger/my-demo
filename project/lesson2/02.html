@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>百度输入法</title>
+    <style type="text/css">
+    	* {margin: 0; padding: 0;}
+    	#wrap {
+    		width: 60px;
+    		margin: 0 auto;
+    		text-align: center;
+    	}
+    	#test {
+    		margin: 0 auto;
+    		margin-top: 5px;
+    		width: 60px;
+    		display: block;
+    		border: 1px solid rgb(114,86,255);
+    		list-style: none;
+    	}
+    	#test li {
+    		width: 60px;
+    		height: 30px;
+    		line-height: 30px;
+    		cursor: pointer;
+   			
+    	}
+    	#test li:last-child {
+    		height: 29px;
+    		border-top: 1px solid rgb(114,86,255);
+    	}
+    	#test li:hover {
+    		background: rgb(168,158,220);
+    	}
+    </style>
+    <script type="text/javascript">
+    	window.onload = function() {
+    		var btn = document.getElementsByTagName("button")[0];
+    		var test = document.getElementById("test");
+    		var close = document.getElementById("close");
+    		var style = test.style;
+    		btn.addEventListener("click", function() {
+    			style.display = style.display == "block" ? "none" : "block"
+
+
+    			/*switch (display) {
+    				case "block":
+    					display = "none";
+    					break;
+    				case "none":
+    					display = "block";
+    					break;
+    				default:
+    					alert("有错误");
+    			}*/
+    		}, false);
+    		close.onclick = function() {
+    			style.display = "none";
+    		}
+    	}
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <button type="button">输入法</button>
+        <ul id="test" style="display: none;">
+            <li>手写</li>
+            <li>拼音</li>
+            <li id="close">关闭</li>
+        </ul>
+    </div>
+</body>
+
+</html>

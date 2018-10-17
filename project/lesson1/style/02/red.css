@@ -1,0 +1,15 @@
+body {
+	background: rgb(241,166,166);
+}
+#red {
+	background: white;
+}
+#green {
+	background: green;
+}
+#blue {
+	background: blue;
+}
+#nav li {
+	background: red;
+}

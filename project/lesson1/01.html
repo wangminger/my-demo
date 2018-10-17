@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Div属性控制</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body ul {
+			width: 330px;
+			height: 40px;
+			display: block;
+			list-style: none;
+			margin: 0 auto;
+			padding-top: 30px;
+		}
+		body ul li {
+			float: left;
+			padding-left: 30px;
+		}
+		#test {
+			height: 100px; 
+			width: 100px;
+			margin: 0 auto;
+			background: black;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var btn = document.getElementsByTagName("button");
+			var test = document.getElementById("test");
+			var attr = ["width", "height", "backgroundColor", "display", "display"];
+			var value = ["200px", "200px", "green", "none", "block"];
+			for (var i = 0; i < btn.length; i++) {
+				btn[i].onclick = function(n) {
+					return function() {
+						if (n==btn.length-1) {
+							test.style.cssText ="";
+						}
+						test.style[attr[n]] = value[n];
+					} 
+				}(i)
+			}
+			/*for (var i = 0; i < btn.length; i++) {
+				btn[i].onclick = function() {
+					if (i == btn.length - 1) {
+						test.style.cssText = "";
+					}
+					test.style[attr[i]] = value[i];
+				}
+			}*/
+		}
+	</script>
+</head>
+<body>
+	<form id="myForm">
+		<ul>
+			<li><button type="button">变宽</button></li>
+			<li><button type="button">变高</button></li>
+			<li><button type="button">变色</button></li>
+			<li><button type="button">隐藏</button></li>
+			<li><button type="button">重置</button></li>
+		</ul>
+	</form>
+	<div id="test"></div>
+	<span>
+		<p>对比<a href="01test.html">标准答案</a>, 本作使用了一个闭包来实现功能</p>
+	</span>
+</body>
+</html>

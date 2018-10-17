@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>网页计算器</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font: 700 24px/1.5 Arial;
+    }
+
+    a {
+        color: #fff;
+        outline: none;
+        text-decoration: none;
+    }
+
+    #wrap {
+        width: 300px;
+        background: #000;
+        margin: 10px auto;
+        position: relative;
+    }
+
+    #wrap p {
+        padding: 10px;
+    }
+
+    .f-text {
+        border: 0;
+        width: 290px;
+        height: 84px;
+        text-align: right;
+        font: 700 50px/84px Arial;
+        background: url(img/inputBg.jpg) repeat-x;
+        padding: 0 5px;
+    }
+
+    #wrap ul {
+        position: relative;
+        overflow: hidden;
+        background: url(img/bg.jpg);
+        padding: 0 0 17px 8px;
+        list-style: none;
+    }
+
+    #wrap ul li {
+        float: left;
+        width: 63px;
+        height: 41px;
+        margin: 17px 10px 0 0;
+    }
+
+    #wrap ul li a {
+        display: block;
+        width: 63px;
+        height: 41px;
+        line-height: 41px;
+        text-align: center;
+        background: url(img/btn.png) no-repeat;
+    }
+
+    #wrap ul li a:hover {
+        background-position: -63px 0;
+    }
+
+    #wrap ul li.btn-1 a {
+        background-position: 0 -41px;
+    }
+
+    #wrap ul li.btn-1 a:hover {
+        background-position: -63px -41px;
+    }
+
+    #wrap ul li.btn-2 {
+        position: absolute;
+        top: 174px;
+        right: 0;
+        height: 99px;
+    }
+
+    #wrap ul li.btn-2 a {
+        line-height: 99px;
+        background-position: 0 -164px;
+        height: 99px;
+    }
+
+    #wrap ul li.btn-2 a:hover {
+        background-position: -63px -164px;
+    }
+
+    #wrap ul li.btn-3 {
+        width: 136px;
+    }
+
+    #wrap ul li.btn-3 a {
+        width: 136px;
+        background-position: 0 -82px;
+    }
+
+    #wrap ul li.btn-3 a:hover {
+        background-position: 0 -123px;
+    }
+
+    #formula {
+        position: absolute;
+        top: 20px;
+        background: none;
+        border: 0;
+        font: 700 12px/1.5 Arial;
+        width: 280px;
+        padding: 3px 15px 0 5px;
+        text-align: right;
+    }
+    </style>
+    <script type="text/javascript">
+    	//本作为未完成项目，后续继续输出
+
+
+
+
+    	
+    /*window.onload = function() {
+    		var allBtn = document.getElementsByTagName("a"),
+    			computeBtn = [],
+    			numBtn = [];
+    		for (var i = 0; i < allBtn.length; i++) {
+    			allBtn[i].index = i;
+    			switch (allBtn[i].innerHTML) {
+    				case "0" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "1" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "2" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "3" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "4" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "5" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "6" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "7" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "8" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "9" : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "." : 
+    					numBtn.push(allBtn[this.index]);
+    					break;
+    				case "c" : 
+    					computeBtn.push(allBtn[this.index]);
+    					break;
+    				case "%" : 
+    					computeBtn.push(allBtn[this.index]);
+    					break;
+    				case "÷" : 
+    					computeBtn.push(allBtn[this.index]);
+    					break;
+    				case "×" : 
+    					computeBtn.push(allBtn[this.index]);
+    					break;
+    				case "-" : 
+    					computeBtn.push(allBtn[this.index]);
+    					break;
+    				case "+" : 
+    					computeBtn.push(allBtn[this.index]);
+    					break;
+    				case "=" : 
+    					computeBtn.push(allBtn[this.index]);
+    					break;
+    			}
+    		}
+    	}*/
+
+    window.onload = function() {
+        var oCalc = document.getElementById("wrap");
+        var aA = oCalc.getElementsByTagName("a");					//获取链接按钮
+        var aInput = oCalc.getElementsByTagName("input")[0];		//当前输入
+        var oFormula = document.getElementById("formula");			//最上方显示已输入的数据
+        var s = false;
+        var i = 0;
+
+
+        function count(a) {
+        	// s为true时，已输入数据更新，同时当前数据也更新。并将s重置
+            if (s) {
+                oFormula.value = aInput.value + a;
+                aInput.value = a;
+                s = false;
+            } 
+            // 如果s为false 
+            else {
+                /[\%\/\*\-\+]$/.test(aInput.value) || (oFormula.value += aInput.value);								//匹配当前显示的值是否为计算符号，如果不是则把当前值加入到历史值中，如果是，当前值替换为参数a代表的符号。
+                aInput.value = a;
+                /[\%\/\*\-\+]$/.test(oFormula.value) || (oFormula.value += aInput.value);
+                oFormula.value = oFormula.value.slice(-1) != a ? oFormula.value.replace(/.$/, a) : oFormula.value
+            }
+        }
+
+
+
+        for (i = 0; i < aA.length; i++) {
+            aA[i].onfocus = function() {
+                this.blur()
+            };
+            aA[i].onclick = function() {
+                switch (this.innerHTML) {
+                    case "c":
+                        aInput.value = 0;
+                        oFormula.value = "";
+                        break;
+                    case "%":
+                        count("%")
+                        break;
+                    case "÷":
+                        count("/")
+                        break;
+                    case "×":
+                        count("*")
+                        break;
+                    case "-":
+                        count("-")
+                        break;
+                    case "+":
+                        count("+")
+                        break;
+                    case "=":
+                        s || (oFormula.value += aInput.value);                                                                            //s或小数字层累加计算符号
+                        aInput.value = eval(oFormula.value.replace(/\%\/\*\-\+/, ''));													  //大层内值为 小层值替换为加减乘除 
+                        aInput.value = aInput.value.substr(0, 10).replace("NaN", 0);
+                        s = true;
+                        break;
+                    case ".":
+                        if (aInput.value.search(/[\.\%\/\*\-\+]/) != -1)
+                            break;
+                    default:
+                        s && (aInput.value = 0, oFormula.value = "", s = false);
+                        aInput.value.length < 10 && (aInput.value = (aInput.value + this.innerHTML).replace(/^[0\%\/\*\-\+](\d)/, "$1"));
+                }
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <p></p>
+        <input type="text" readonly="readonly" maxlength="9" value="0" class="f-text">
+        <ul>
+            <li class="btn-1">
+                <a href="javascript:;">c</a>
+            </li>
+            <li class="btn-1">
+                <a href="javascript:;">%</a>
+            </li>
+            <li class="btn-1">
+                <a href="javascript:;">÷</a>
+            </li>
+            <li class="btn-1">
+                <a href="javascript:;">×</a>
+            </li>
+            <li>
+                <a href="javascript:;">7</a>
+            </li>
+            <li>
+                <a href="javascript:;">8</a>
+            </li>
+            <li>
+                <a href="javascript:;">9</a>
+            </li>
+            <li class="btn-1">
+                <a href="javascript:;">-</a>
+            </li>
+            <li>
+                <a href="javascript:;">4</a>
+            </li>
+            <li>
+                <a href="javascript:;">5</a>
+            </li>
+            <li>
+                <a href="javascript:;">6</a>
+            </li>
+            <li class="btn-1">
+                <a href="javascript:;">+</a>
+            </li>
+            <li>
+                <a href="javascript:;">1</a>
+            </li>
+            <li>
+                <a href="javascript:;">2</a>
+            </li>
+            <li>
+                <a href="javascript:;">3</a>
+            </li>
+            <li class="btn-2">
+                <a href="javascript:;">=</a>
+            </li>
+            <li class="btn-3">
+                <a href="javascript:;">0</a>
+            </li>
+            <li>
+                <a href="javascript:;">.</a>
+            </li>
+        </ul>
+        <input id="formula" type="text" readonly="readonly" value="">
+    </div>
+</body>
+
+</html>

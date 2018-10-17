@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>用parseInt解析数字</title>
+	<style>
+		body {
+			text-align: center;
+		}
+		input {
+			width: 50px;
+			background: #f0f0f0;
+			border: 1px #ccc solid;
+		}
+		span {
+			color: green;
+			font-weight: 700;
+			padding-right: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var input = document.getElementsByTagName("input"),
+			btn = document.getElementsByTagName("button")[0],
+			result = document.getElementsByTagName("span")[0];
+			//
+			
+			btn.onclick = function() {
+				var va1 = parseInt(input[0].value),
+					va2 = parseInt(input[1].value),
+			    	va3 = va1 + va2;
+				result.innerHTML = va3;
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<input type="text">
+	<strong>+</strong>
+	<input type="text">
+	<strong>=</strong>
+	<span>?</span>
+	<button>求和</button>
+</body> 
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>用循环将DIV变成红色</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+		#wrap {
+			width: 730px;
+			margin: 0 auto;
+		}
+		#wrap div {
+			width: 200px;
+			height: 200px;
+			background: black;
+			float: left;
+			margin: 0 20px; 
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var doc = document,
+				btn = doc.getElementsByTagName("button")[0],
+				div = doc.getElementById("wrap").getElementsByTagName("div");
+			btn.onclick = function() {
+				for (var i=0; i<div.length; i++) {
+					div[i].style.cssText = "background: red;";
+				}
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<p><button>点击变色</button></p>
+	<div id="wrap">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</body>
+</html>

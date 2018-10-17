@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>数组练习</title>
+	<style type="text/css">
+		div {
+			border: 1px dotted;
+			background: grey;
+			line-height: 40px;
+		}
+	</style>
+	
+</head>
+<body>
+	<div></div>
+	<button>删除1</button>
+	<button>删除2</button>
+	<div></div>
+	<button>复制</button>
+	<button>还原</button>
+	<div></div>
+	<button>还原</button>
+	<button>删除前3项</button>
+	<button>删除2-3项</button>
+	<button>在第二项后面插入（a，b）</button>
+	<button>替换第二项和第三项</button>
+	<script type="text/javascript">
+		var show = document.getElementsByTagName("div"),
+			btn = document.getElementsByTagName("button"),
+			arr = [1,2,3,4,5,6,7,8,9,10,11,12],
+			con;
+
+		btn[0].onclick = function(){
+			btn[0].className = btn[0].className == "1" ? "" : "1";
+			btn[0].innerHTML = btn[0].className == "1" ? "添加1" : "删除1";
+			btn[0].className == "1" ? (con = arr.pop()) : (arr.push(con));
+		};
+		show[0].innerHTML = arr;
+
+	</script>
+</body>
+</html>

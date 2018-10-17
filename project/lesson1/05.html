@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>鼠标移入移出改变样式</title>
+	<style type="text/css">
+		#temp {
+			width: 200px;
+			height: 250px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		#temp div {
+			width: 200px;
+			height: 200px;
+			border: 10px black solid;
+			background: black;
+			color: white;
+		}
+		#temp div:hover {
+			border: 10px red solid;
+			background: white;
+			color: red;
+			cursor: crosshair;
+		}
+	</style>
+</head>
+<body>
+	<div id="temp">
+		
+		<div><p>鼠标移入改变样式，鼠标移出恢复</p></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>鼠标移过，改变图片路径</title>
+    <style type="text/css">
+    body {
+    	background: black;
+    }
+    #wrap {
+        margin: 10px auto;
+        width: 212px;
+        border: 5px #fff solid;
+        padding: 0 0 3px 3px;
+        overflow: hidden;
+        border-radius: 5px;
+        list-style: none;
+        background: #fff;
+    }
+    #wrap li{
+    	margin: 3px 3px 0 0;
+    	padding: 0;
+    	background: #fff;
+    	display: block;
+    	
+    }
+    #wrap li, #wrap li img {
+    	width: 50px;
+    	height: 50px;
+    	float: left;
+    	border-radius: 4px;
+    } 
+
+    #wrap .show , #wrap .show img {
+    	width: 156px;
+    	height: 156px;
+    }
+    </style>
+    <script type="text/javascript">
+    	window.onload = function() {
+    		var pic = document.getElementsByTagName("img"),
+    			source = document.getElementsByTagName("li");
+    		for (var i = 1; i < source.length; i++) {
+    			source[i].index = pic[i].index = i;
+    			pic[i].onmouseover = function() {
+    				var pos = pic[this.index].getAttribute("src");
+    				var hrf = pos.replace("small", "big");
+    				pic[0].setAttribute("src", hrf);
+    			};
+    		}
+    	};
+    	
+    </script>
+</head>
+
+<body>
+    <ul id="wrap">
+        <li class="show">
+        	<a href="javascript:;">
+        		<img src="img/big_1.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_1.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_2.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_3.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_4.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_5.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_6.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_7.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_8.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_9.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_10.jpg">
+        	</a>
+        </li>
+        <li>
+        	<a href="javascript:;">
+        		<img src="img/small_11.jpg">
+        	</a>
+        </li>
+
+    </ul>
+</body>
+
+</html>

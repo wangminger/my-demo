@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>记住密码提示框</title>
+    <style type="text/css">
+    #wrap {
+        width: 200px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    #show {
+        width: 196px;
+        height: 80px;
+        border: 2px solid rgb(255, 162, 0);
+        background: rgb(255, 226, 176);
+       
+    }
+
+    .on {
+        display: block;
+    }
+
+    .off {
+        display: none;
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload = function() {
+        var show = document.getElementById("show"),
+            wrap = document.getElementById("wrap");
+        wrap.addEventListener("mouseover", function() {
+        	show.className = "on";
+        }, false);
+        wrap.addEventListener("mouseout", function() {
+        	show.className = "off";
+        }, false);
+            
+        
+        /*wrap.onmouseout = function() {
+            show.style.display = "none";
+        };*/
+    }
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <input type="checkbox" name="选项" value="两周内自动等" checked="checked">两周内连续登录<br />
+        <div id="show" class="off">
+            <p>为了您的信息安全，请不要再网吧使用此功能</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>简易网页时钟</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		#wrap {
+			margin: 10px auto;
+			background: black;
+			color: white;
+			width: 400px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			padding: 20px 0;
+		}
+		span {
+			width: 80px;
+			background: white;
+			border: 2px solid #ccc;
+			margin: 0 10px;
+			color: black;
+			padding: 0 10px;
+			line-height: 2;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			
+			var	span = document.getElementsByTagName("span");
+			refreshTime();
+			setInterval(refreshTime, 1000);
+
+			//时间刷新，用数组保存时间数据
+			function refreshTime() {
+				var	now = new Date(),
+					time = [now.getHours(), now.getMinutes(), now.getSeconds()];
+				for (var i in time) {
+					span[i].innerHTML = trans(time[i]);
+				} 
+			}
+			//本方法主要是将个位数秒、分、时前面添加0，保持位数为2位。
+			function trans(a) {
+				return a.toString().replace(/^\d$/, "0$1");
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id ="wrap">
+		<span></span>
+		点
+		<span></span>
+		分
+		<span></span>
+		秒
+	</div>
+</body>
+</html>

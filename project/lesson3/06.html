@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>判断数字是否为两位数</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+		input {
+			width: 50px;
+			height: 20px;
+			background: #f0f0f0;
+			border: 1px solid #ccc;
+		}
+		button {
+			margin: 0 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var input = document.getElementsByTagName("input")[0],
+				btn = document.getElementsByTagName("button")[0];
+			btn.onclick = function() {
+				var val = parseInt(input.value), 
+					bit = 0;
+				//	
+				do {
+					bit++;
+					if (val < 0) {
+						val = Math.ceil(val/10);
+					} else {
+						val = Math.floor(val/10);	
+					}
+				} while (val != 0);
+				
+				if (bit==2) {
+					alert("√ 是2位数")
+				} else {
+					alert("该数字为" + bit + "位数");
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="text">
+	<button>是否为两位数</button>
+</body>
+</html>

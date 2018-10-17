@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>test</title>
+	<script type="text/javascript">
+		/*function persistence(num) {
+			//code me
+			if (num < 10) {
+				return num;
+			} else {
+				var temp = num.toString().match(/\d/g);
+				var	sum = 1;
+				for (var i = 0; i < temp.length; i++) {
+					temp[i].index = i;
+					sum = sum * parseInt(temp[this.index]);
+				}
+				if (sum < 10) {
+					return sum;
+				} else {
+					persistence(sum);
+				}
+			}
+		}
+		window.onload = function() {
+			window.innerHTML = persistence(123);
+		}*/
+		/*function test(num) {
+			var temp = num.toString().match(/\d/g);
+			console.log(temp);
+		}
+		window.onload = function() {
+			test(123);
+		}*/
+
+		
+		window.onload = function() {
+			// 斐波那契数列
+			/*function fibonacci(arr,n) {
+				var rot = arr;
+				var len = rot.length;
+				if (n>len) {
+					rot[len] = rot[len-1] + rot[len-2];
+					fibonacci(rot, n);
+				} else {
+					rot.length = n;
+				}
+				return rot;
+			}
+			alert(fibonacci([1,1,1],20));*/
+			/*function compare(value1, value2) {
+				if (parseInt(value1) < parseInt(value2)) {
+					return -1;
+				} else if (parseInt(value1) > parseInt(value2)) {
+					return 1;
+				} else {
+					return 0;
+				}
+			}
+			// 获取字符串，并通过split进行分离得到字符串数组
+			// 通过正则表达式获取字符串内含的数字，将数字的值进行排序，然后将对应字符串按照顺序排列。
+			function order(words) {
+				var strArr = words.split(" ");
+
+				var newarr = []
+				for (var i in strArr) {
+					var pos = strArr[i].match(/\d/);
+					//newarr.push(strArr[pos]);
+					newarr[pos] = strArr[i];
+				}
+				var result = newarr.join(" ");
+				return result;
+			}
+			console.log(order("2ha th1s 3sha 4y"));
+
+			function XO(str) {
+				//code here
+				var arrx = str.match(/x/gi);
+				var arro = str.match(/o/gi);
+				return arrx.length == arro.length ? true : false;
+			}
+			console.log(XO("xxaoodasox"));
+		}*/
+
+		function inheritObject(o) {
+			function F() {}
+			F.prototype = o;
+			return new F();
+		}
+		var book = {
+			name: "js book",
+			alikeBook: ["css book", "html book"]
+		};
+		var newBook = inheritObject(book);
+		newBook.name = "ajax";
+		newBook.alikeBook = ["css book", "html book"];
+		newBook.alikeBook.push("xml book");
+
+		var otherbook = inheritObject(book);
+		otherbook.name = "flash";
+		otherbook.alikeBook.push("as book");
+
+		console.log(newBook.name);
+		console.log(newBook.alikeBook);
+
+		console.log(otherbook.name);
+		console.log(otherbook.alikeBook);
+
+		console.log(book.name);
+		console.log(book.alikeBook);
+	}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

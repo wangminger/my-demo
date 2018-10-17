@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>传参数</title>
+	<style type="text/css">
+		/*body p {
+			margin: 10px 0;
+
+		}
+		body p input {
+			display: block;
+			margin: 0 auto;
+			padding: 2px;
+		}*/
+		body {
+			text-align: center;
+		}
+		input,button {
+			font-family: inherit;
+		}
+		button {
+			border: 1px solid #ccc;
+			cursor: pointer;
+		}
+		input {
+			padding: 3px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var btn = document.getElementsByTagName("button")[0],
+			inpt = document.getElementsByTagName("input");
+			btn.onclick = function() {
+				alert(inpt[0].value);
+				alert(inpt[1].value);
+			}
+			
+			var btn = document.getElementsByTagName("button")[0],
+				inpt = document.getElementsByTagName("input");
+			btn.onclick = function() {
+				alert(inpt[0].value);
+				alert(inpt[1].value);
+			}	
+		}
+	</script>
+</head>
+<body>
+	<p><input type="text" name="城市" value="长沙市"></p>
+	<p><input type="text" name="区" value="星沙"></p>
+	<p><button type="submit">传参</button></p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图片列表：鼠标移入移出改变图片透明度</title>
+	<style type="text/css">
+		#imageList {
+			margin: 0 auto;
+			width: 700px;
+			padding: 0 0 10px 10px;
+			border: 1px black solid;
+			list-style: none;
+			overflow: hidden;
+		}
+		#imageList li {
+			width: 128px;
+			height: 128px;
+			border: 1px grey solid;
+			display: block;
+			background: red;
+			opacity: 0.2;
+			margin: 10px 10px 0 0;
+			float: left;
+		}
+		#imageList .current {
+			opacity: 1;
+		}
+	</style>
+	<script type="text/javascript">
+		function changeName(elem, name) {
+			elem.className = name;
+		}
+		window.onload = function() {
+			var imglist = document.getElementById("imageList"),
+				elem = document.getElementsByTagName("li");
+			for (var i = 0; i < elem.length; i++) {
+				elem[i].onmouseover = function() {
+					this.className = "current";
+				};
+				elem[i].onmouseout = function() {
+					this.className = "";
+				}
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<ul id="imageList">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>
