@@ -166,8 +166,78 @@ console.log(validate("1assssss"))
 
 
 //给两个由字符串表示的整数，返回两数之和
-function sumString(a,b) {
+/*function sumString(a,b) {
   return (parseInt(a) + parseInt(b)).toString();
 }
 console.log(sumString('1','2'))
-console.log(0=="")
+console.log(0=="")*/
+
+function sumStrings(a,b) {
+  var aarr = a.split(''),
+      barr = b.split(''),
+      shortlen=null,longlen=null,
+      sum=0,
+      result =[],
+      dec=0,
+      diff=0,
+      anum=aarr.concat(),bnum=barr.concat();
+  for(var j in aarr) {
+    if (aarr[j]=='0') {
+      anum.shift();
+      continue;
+    }
+    break;
+  }
+  for(var k in barr) {
+    if (barr[k]=='0') {
+      bnum.shift();
+      continue;
+    }
+    break;
+  }
+  anum.length >= bnum.length ? (longlen=anum, shortlen = bnum) : (longlen=bnum, shortlen =anum);
+  diff = longlen.length-shortlen.length;
+  for (var i = longlen.length-1; i >= 0 ; i--) {
+    sum = i-diff < 0 ? parseInt(longlen[i]) : (parseInt(longlen[i]) + parseInt(shortlen[i-diff]));
+    if (dec==0) {
+        sum >= 10 ? (sum = sum.toString().split('').pop(), dec=1) : (sum = sum.toString(), dec=0);
+        result.push(sum);
+      } else {
+        sum+dec >= 10 ? (sum = (sum+dec).toString().split('').pop(), dec=1) : (sum = (sum+dec).toString(), dec=0);
+        result.push(sum);
+      }
+  }
+  if (dec==1) {
+    result.push('1');
+  }
+  return result.reverse().join('');
+}
+console.log(sumStrings('00103','08576'))
+  /*if (anum.length>=bnum.length) {
+    diff=anum.length-bnum.length;
+    for (var i = bnum.length-1; i >= 0; i--) {
+      sum = parseInt(anum[i+diff]) + parseInt(bnum[i]);
+      if (dec==0) {
+        sum >= 10 ? (sum = sum.toString().pop(), dec=1) : (sum = sum.toString(), dec=0);
+        result.push(sum);
+      } else {
+        sum+dec >= 10 ? (sum = (sum+dec).toString().pop(), dec=1) : (sum = (sum+dec).toString(), dec=0);
+        result.push(sum);
+      }
+    }
+  }*/
+
+
+  /*for (var i = shortlen-1; i >= 0; i--) {
+    sum = parseInt(anum[i]) + parseInt(bnum[i]);
+    if (dec==0) {
+      sum >= 10 ? (sum = sum.toString().pop(), dec=1) : (sum = sum.toString(), dec=0);
+      result.push(sum);
+    } else {
+      sum+dec >= 10 ? (sum = (sum+dec).toString().pop(), dec=1) : (sum = (sum+dec).toString(), dec=0);
+      result.push(sum);
+    }
+  }*/
+ /* var a = [1,2,3,4,54]
+  a.shift()
+  console.log(a)*/
