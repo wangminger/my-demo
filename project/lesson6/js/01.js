@@ -20,6 +20,7 @@ window.onload = function() {
 	//广播按钮功能实现
 	sendBtn.onclick = function() {
 		submitStatus();
+		apper()
 	}
 	//添加鼠标移动到状态添加背景样式功能
 	statusHover();
@@ -76,6 +77,8 @@ window.onload = function() {
 
 			li.appendChild(userPic);
 			li.appendChild(content);
+			//刚开始添加不显示
+			//li.style.display = "none";
 
 			list.insertBefore(li, list.firstChild);
 
@@ -113,10 +116,7 @@ window.onload = function() {
 		for (i = 0; i < del.length; i++) {
 			del[i].index = i;
 			del[i].onclick = function(event) {
-				//event.preventDefault();
 				delefade(this.index);
-				statusHover();
-				//fade && (list.removeChild(list.childNodes[this.index]),statusHover());
 			}
 		}
 	} 
@@ -125,18 +125,39 @@ window.onload = function() {
 	function delefade(n) {
 		var cur = list.getElementsByTagName("li")[n],
 			opc=100,
-			height = /*parseInt(document.defaultView.getComputedStyle(cur,null).height)*/ cur.offsetHeight,
+			height = cur.offsetHeight,
 			top = 0;
 		var fade = setInterval(function(){
 			opc-=2;
 			cur.style.opacity = opc/100;
 			opc <=0 && (opc=0, top+=2, cur.style.marginTop = "-" + top + "px");
-			//top >= height && (top = height, clearInterval(fade));
 			if (top>=height) {
 				top = height;
 				clearInterval(fade);
 				list.removeChild(list.childNodes[n]);
+				statusHover();
 			}
 		}, 2);
 	}
 }
+
+	//添加状态时，渐变动画
+	function apper() {
+		var li = document.getElementsByTagName("li")[0],
+		height = parseInt(document.defaultView.getComputedStyle(li,null).height),
+		top=opc=0;
+		li.style.height = 0;
+		li.style.opacity = 0;
+		li.style.display = "block";
+		var show = setInterval(function(){
+			top+=1;
+			if (top<= height) {
+				li.style.height = top + "px";
+			}else {
+				top=height;
+				opc+=1;
+				li.style.opacity = opc/100;
+				opc>=100 && clearInterval(show);
+			}
+		}, 2);
+	}
