@@ -8,7 +8,7 @@ window.onload = function() {
 		list = document.getElementById("list").getElementsByTagName("ul")[0];
 
 	
-	//	点击更换头像
+	//点击图片更换头像
 	for (i = 0; i < portrait.length; i++) {
 		portrait[i].index = i;
 		portrait[i].onclick = function() {
@@ -17,16 +17,18 @@ window.onload = function() {
 			portSele = this.index;
 		}
 	}
-	//广播按钮
+	//广播按钮功能实现
 	sendBtn.onclick = function() {
 		submitStatus();
 	}
-	//删除按钮
+	//添加鼠标移动到状态添加背景样式功能
 	statusHover();
+	//添加删除功能
 	deleteLi();
 
 
-
+/*---------------------------------------------函数区----------------------------------------------*/
+	//广播按钮函数
 	function submitStatus() {
 		userId.value == "" && alert("请输入ID");
 		text.value == "" && alert("请出入您的状态");
@@ -81,7 +83,6 @@ window.onload = function() {
 			text.value = "";
 			//测试 alert("ID: " + userId.value + ";\n" + "Status:" + text.value);
 			statusHover();
-			deleteLi();
 		}
 	}
 
@@ -95,6 +96,7 @@ window.onload = function() {
 				li[this.index].className = "hover";
 				del = li[this.index].getElementsByClassName("del")[0];
 				del.style.display = "block";
+				deleteLi();
 			};
 			li[i].onmouseout = function() {
 				li[this.index].className = "";
@@ -106,14 +108,35 @@ window.onload = function() {
 
 	//点击删除时删除当前状态
 	function deleteLi() {
-		var del = document.getElementsByClassName("del");
+		var del = document.getElementsByClassName("del"),
+			list = document.getElementById("list").getElementsByTagName("ul")[0];
 		for (i = 0; i < del.length; i++) {
 			del[i].index = i;
-			del[i].onclick = function() {
-				list.removeChild(list.childNodes[this.index]);
+			del[i].onclick = function(event) {
+				//event.preventDefault();
+				delefade(this.index);
 				statusHover();
+				//fade && (list.removeChild(list.childNodes[this.index]),statusHover());
 			}
 		}
 	} 
 
+	//删除时，消失动画
+	function delefade(n) {
+		var cur = list.getElementsByTagName("li")[n],
+			opc=100,
+			height = /*parseInt(document.defaultView.getComputedStyle(cur,null).height)*/ cur.offsetHeight,
+			top = 0;
+		var fade = setInterval(function(){
+			opc-=2;
+			cur.style.opacity = opc/100;
+			opc <=0 && (opc=0, top+=2, cur.style.marginTop = "-" + top + "px");
+			//top >= height && (top = height, clearInterval(fade));
+			if (top>=height) {
+				top = height;
+				clearInterval(fade);
+				list.removeChild(list.childNodes[n]);
+			}
+		}, 2);
+	}
 }
