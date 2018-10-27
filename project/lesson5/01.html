@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>select控件</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		body {
+			overflow: hidden;
+		}
+		#big{
+			width: 400px;
+			height: 400px;
+			border: 1px grey solid;
+			position: absolute;
+			display: none;
+		}
+		#box {
+			width: 170px;
+			height: 170px;
+			border: 1px grey solid;
+			margin: 20px auto;
+		}
+		/*#sheet {
+			width: 150px;
+			margin: 0 auto;
+			text-align: center;
+			display: block;*/
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			/*document.onclick = function(event) {
+				var event = event || window.event;
+				alert("坐标：[" + event.clientX + ", " + event.clientY + "]");
+			}
+
+			var p = document.getElementsByTagName("p")[0];
+			document.onkeydown = function(event) {
+				p.innerHTML = event.keyCode;
+			}
+			document.addEventListener("contextmenu", function(event) {
+				event.preventDefault();
+			}, false);
+			window.addEventListener("beforeunload", function(event) {
+				var message = 
+				event.returnValue = message;
+				return message;
+			}, false);*/
+
+
+			var box = document.getElementById("box"),
+				big = document.getElementById("big");
+			var img = document.createElement("img");
+			box.addEventListener("mouseover", function(event) {
+				big.style.display = "block";
+				img.setAttribute("src", "img/shirt_3_big.jpg");
+				big.appendChild(img);
+			}, false);
+			box.addEventListener("mousemove", function(event) {
+				big.style.left = event.clientX + 20 + "px";
+				big.style.top = event.clientY + 20 + "px";
+			}, false);
+
+			box.addEventListener("mouseout", function() {
+				big.removeChild(img);
+				big.style.display = "none";
+			}, false);
+		}
+	</script>
+</head>
+<body>
+	<!-- <select id="sheet" value = "请选择游戏名称">
+		<option selected="selected">请选择游戏名称</option>
+		<option>地下城与勇士</option>
+		<option>魔兽世界</option>
+		<option>3</option>
+		<option>4</option>
+	</select>
+	<p>键盘数</p> -->
+
+	<div id="box">
+		<img src="img/shirt_1.jpg">
+	</div>
+	<div id="big"></div>
+</body>
+</html>

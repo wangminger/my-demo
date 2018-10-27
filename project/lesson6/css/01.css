@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #3c3a3b;
+    font: 12px / 1.5 "微软雅黑";
+}
+
+#wrap {
+    width: 500px;
+    border-radius: 5px;
+    background: white;
+
+    margin: 10px auto;
+    padding-top: 10px;
+}
+
+#wrap form {
+    background: url(../img/boxBG.jpg) repeat-x 0 bottom;
+    padding: 0 20px 15px;
+
+}
+
+#wrap form div {
+    margin-top: 10px;
+    position: relative;
+}
+
+#userName {
+    width: 130px;
+    height: 22px;
+
+}
+
+#face {
+    height: 30px;
+    position: absolute;
+    left: 145px;
+    top: 0;
+}
+
+#face img {
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+    cursor: pointer;
+    border-radius: 3px;
+    opacity: 0.5;
+}
+
+#face img:hover {
+    opacity: 1;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #66b2ff;
+}
+
+#face img.current {
+    opacity: 1;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #66b2ff;
+}
+
+#text {
+    width: 448px;
+    height: 65px;
+    resize: none;
+}
+
+#userName,#text {
+    border: 1px solid #d0d0d0;
+    padding: 3px 5px;
+    border-radius: 6px;
+    background: #fff url(../img/inputBG.png) repeat-x;
+    color: #777;
+    font: 14px / 1.5 "微软雅黑";
+}
+
+#wrap .tr {
+    color: #999;
+    overflow: hidden;
+}
+
+#wrap .tr * {
+    float: left;
+}
+
+#wrap .tr p {
+    float: right;
+    line-height: 30px;
+}
+
+#wrap .tr p span {
+    line-height: 30px;
+}
+
+#wrap .tr #sendBtn {
+    width: 112px;
+    height: 30px;
+    background: url(../img/btn.png);
+    border: 0;
+    cursor: pointer;
+    margin-left: 10px;
+}
+#wrap .tr #sendBtn:hover {
+  background: url(../img/btn.png) 0 -30px;
+}
+
+#list {
+    width: 480px;
+    padding: 10px;
+}
+
+#list h3 {
+    background: #e3eaec;
+    border: 1px #dee4e7 solid;
+    height: 33px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#list h3 span {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    background: #fff;
+    line-height: 28px;
+    display: inline-block;
+    padding: 0 15px;
+}
+
+#list ul li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #d8d8d8;
+    overflow: hidden;
+}
+#list ul li.hover {
+  background: #f5f5f5;
+}
+
+#list .userPic {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    float: left;
+}
+
+#list .content {
+    width: 400px;
+    float: left;
+    margin-left: 10px;
+}
+
+#list .content .userName {
+    padding-right: 5px;
+    display: inline;
+}
+
+#list .content .userName a {
+    text-decoration: none;
+    color: #2b4a78;
+    font-size: 15px;
+}
+
+#list .content .info {
+    font-size: 15px;
+    display: inline;
+}
+
+#list .content .time {
+  color: #889db6;
+  font: 12px/18px "微软雅黑";
+  margin-top:5px;
+  overflow: hidden;
+}
+#list .content .time span {
+  float: left;
+}
+#list .content .time a {
+  float: right;
+  color: #889db6; 
+}
+#list .content .time a {
+  float: right;
+  color: #889db6; 
+  text-decoration: none;
+  display: none;
+}
+#list .content .time a:hover {
+  text-decoration: underline;
+}

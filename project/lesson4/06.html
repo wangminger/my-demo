@@ -3,14 +3,50 @@
 <head>
 	<meta charset="utf-8">
 	<title>好评打星功能</title>
+	<script type="text/javascript" src="js/06.js"></script>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+ 		.sheet {
+			margin: 10px auto;
+			width: 125px;
+			overflow: hidden;
+			list-style: none;			
+		}
+		.sheet li {
+			width: 25px;
+			height: 25px; 
+			display: block;
+			background: url(img/star.png) no-repeat;
+			float: left;
+		}
+		.sheet li.check {
+			background: url(img/star.png) no-repeat 0 -28px;
+		}
+		.sheet li a {
+			width: 25px;
+			height: 25px;
+			display: block;
+		}
+	</style>
 </head>
 <body>
-	<ul>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+	<ul class="sheet">
+		<li >
+			<a href="javascript:;"></a>
+		</li>
+		<li>
+			<a href="javascript:;"></a>
+		</li>
+		<li>
+			<a href="javascript:;"></a>
+		</li>
+		<li>
+			<a href="javascript:;"></a>
+		</li>
+		<li>
+			<a href="javascript:;"></a>
+		</li>
+
 	</ul>
 </body>
 </html>

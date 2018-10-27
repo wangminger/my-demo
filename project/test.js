@@ -172,7 +172,8 @@ console.log(validate("1assssss"))
 console.log(sumString('1','2'))
 console.log(0=="")*/
 
-function sumStrings(a,b) {
+//对两个数字进行加法计算，该计算可以超过整数精度
+/*function sumStrings(a,b) {
   var aarr = a.split(''),
       barr = b.split(''),
       shortlen=null,longlen=null,
@@ -212,32 +213,30 @@ function sumStrings(a,b) {
   }
   return result.reverse().join('');
 }
-console.log(sumStrings('00103','08576'))
-  /*if (anum.length>=bnum.length) {
-    diff=anum.length-bnum.length;
-    for (var i = bnum.length-1; i >= 0; i--) {
-      sum = parseInt(anum[i+diff]) + parseInt(bnum[i]);
-      if (dec==0) {
-        sum >= 10 ? (sum = sum.toString().pop(), dec=1) : (sum = sum.toString(), dec=0);
-        result.push(sum);
-      } else {
-        sum+dec >= 10 ? (sum = (sum+dec).toString().pop(), dec=1) : (sum = (sum+dec).toString(), dec=0);
-        result.push(sum);
-      }
-    }
-  }*/
+console.log(sumStrings('00103','08576'))*/
 
 
-  /*for (var i = shortlen-1; i >= 0; i--) {
-    sum = parseInt(anum[i]) + parseInt(bnum[i]);
-    if (dec==0) {
-      sum >= 10 ? (sum = sum.toString().pop(), dec=1) : (sum = sum.toString(), dec=0);
-      result.push(sum);
-    } else {
-      sum+dec >= 10 ? (sum = (sum+dec).toString().pop(), dec=1) : (sum = (sum+dec).toString(), dec=0);
-      result.push(sum);
-    }
-  }*/
- /* var a = [1,2,3,4,54]
-  a.shift()
-  console.log(a)*/
+
+ String.prototype.reverse = function() {
+  return this.split('').reverse().join('');  //将reverse方法从数组方法变成了字符串方法
+}
+
+function sumStrings(a,b) {
+  a = a.reverse(); b = b.reverse();  //a、b分别取得其字符串的反转
+  var carry = 0;
+  var index = 0;                                                //index即两数最大位数
+  var sumDigits = [];
+  while (index < a.length || index < b.length || carry != 0) {  //只要计算两数的位数没有超过最大位就进行循环
+    var aDigit = index < a.length ? parseInt(a[index]) : 0;
+    var bDigit = index < b.length ? parseInt(b[index]) : 0;
+    var digitSum = aDigit + bDigit + carry;
+    sumDigits.push((digitSum % 10).toString());
+    carry = Math.floor(digitSum / 10);
+    index++;
+  }
+  sumDigits.reverse();
+  while (sumDigits[0] == '0') sumDigits.shift();
+  return sumDigits.join('');
+}
+
+console.log(sumStrings('0123','1231231233124123123123123123123123123'))
