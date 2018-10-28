@@ -5,7 +5,8 @@ window.onload = function() {
 		text = document.getElementById("text"),
 		sendBtn = document.getElementById("sendBtn");
 		portSele=i=j=0;
-		list = document.getElementById("list").getElementsByTagName("ul")[0];
+		list = document.getElementById("list").getElementsByTagName("ul")[0],
+		amlimit=null;
 
 	
 	//点击图片更换头像
@@ -19,13 +20,37 @@ window.onload = function() {
 	}
 	//广播按钮功能实现
 	sendBtn.onclick = function() {
-		submitStatus();
-		apper()
+		submitStatus() && apper();
 	}
 	//添加鼠标移动到状态添加背景样式功能
 	statusHover();
 	//添加删除功能
 	deleteLi();
+
+	text.addEventListener("focus", function(){
+		var show = document.getElementsByClassName("tr")[0].getElementsByTagName("span")[1],
+			over = document.getElementsByClassName("tr")[0].getElementsByTagName("span")[0];
+		amlimit = setInterval(function() {
+			var amount = text.value.length;
+			140 - amount >= 0 ? (over.innerHTML = "还能输入", show.innerHTML = 140 - amount) : (over.innerHTML = "已超出", show.innerHTML = Math.abs(140 - amount));
+			console.log(1);
+		}, 100);
+	}, false);
+	text.addEventListener("blur", function(){
+		clearInterval(amlimit);
+	}, false);
+	/*text.onfocus = function() {
+		var show = document.getElementsByClassName("tr")[0].getElementsByTagName("span")[1],
+			over = document.getElementsByClassName("tr")[0].getElementsByTagName("span")[0];
+		var amlimit = setInterval(function() {
+			var amount = text.value.length;
+			140 - amount >= 0 ? (over.innerHTML = "还能输入", show.innerHTML = 140 - amount) : (over.innerHTML = "已超出", show.innerHTML = Math.abs(140 - amount));
+			console.log(1);
+		}, 1000);
+	}
+	text.onblur = function() {
+		
+	}*/
 
 
 /*---------------------------------------------函数区----------------------------------------------*/
@@ -34,7 +59,7 @@ window.onload = function() {
 		userId.value == "" && alert("请输入ID");
 		text.value == "" && alert("请出入您的状态");
 		if (userId.value && text.value) {
-			var li = document.createElement("li");					//列表整体
+			var li = document.createElement("li"),					//列表整体
 				userPic = document.createElement("div"),			//头像DIV
 				img = document.createElement("img"),				//头像图片
 				portLink = "img/face" + (portSele + 1) + ".gif" , 	//头像链接
@@ -86,6 +111,7 @@ window.onload = function() {
 			text.value = "";
 			//测试 alert("ID: " + userId.value + ";\n" + "Status:" + text.value);
 			statusHover();
+			return true;
 		}
 	}
 

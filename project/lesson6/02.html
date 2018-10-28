@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>自定义多级菜单</title>
+    <script type="text/javascript" src="js/02.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #menu {
+        width: 200px;
+        overflow: hidden;
+    }
+    .first_menu {
+    	width: 200px;
+    	overflow: hidden;
+    }
+    .first_menu li {
+    	height: 30px;
+    }
+    .first_menu li p {
+    	display: inline-block;
+    	float: left;
+    }
+    .first_menu li span {
+    	float: right;
+    }
+
+    .second_menu {
+    	display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <ul class="first_menu">
+            <li>JavaScript学习</li>
+            <li>
+                <p>第一课</p><span>▶</span>
+                <ul class="second_menu">
+                    <li>
+                        <p>1.1课</p><span>▶</span>
+                        <ul class="secone_menu">
+                            <li>1.1.1</li>
+                            <li>1.1.1</li>
+                            <li>1.1.1</li>
+                        </ul>
+                    </li>
+                    <li>1.2</li>
+                    <li>1.3</li>
+                </ul>
+            </li>
+            <li>
+                <p>第二课</p><span>▶</span>
+            </li>
+            <li>
+                <p>第三课</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
