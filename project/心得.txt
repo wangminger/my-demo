@@ -4,3 +4,4 @@
 4、setInterval() 函数，参数同setTimeout，但是该方法是以固定时间间隔持续调用函数。
 5、逻辑操作：  &&（与） a&&b  （a）如果第一个操作数是对象，则返回第二个操作数。 （b）如果第二个操作数是对象，则只有第一个操作数的求值结果为true时才返回该对象。 （c）如果两个都是对象，则返回第二个操作数。 （d）如果有一个是null、undefined、NaN ，则返回null、undefine、NaN。
 			 ||（或）  a||b (a) 如果第一个操作数是对象，则返回第一个操作数。(b)如果第一个操作数求值为false，则返回第二个操作数。(c)如果两个都是对象，则返回第一个操作数。(d)如果两个都是null、undefined、NaN则返回null、undefined、NaN。
+6、setInterval使用时，要注意变量的使用，在函数内部的变量改变比较快，而setInterval改变需要时间。

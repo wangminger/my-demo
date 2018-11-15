@@ -12,15 +12,30 @@
     }
 
     #menu {
+    	box-shadow: 5px 5px 5px #888888;
         width: 200px;
-        overflow: hidden;
-    }
+        display: none;
+        position: absolute;
+    }	
     .first_menu {
-    	width: 200px;
+    	box-shadow: 5px 5px 5px #888888;
     	overflow: hidden;
+    	border: 1px solid #979797;
+    	background: #f1f1f1 url(img/line.png) 24px 0 repeat-y;
     }
     .first_menu li {
-    	height: 30px;
+    	list-style: none;
+    	width: 160px;
+    	padding: 0 5px 0 31px;
+    	height: 24px;
+    	font-size: 12px;
+    	line-height: 24px;
+    	border: 1px solid;
+    	border-color: rgba(0,0,0,0);
+    }
+    .first_menu li:hover {
+    	border: 1px solid blue;
+    	border-radius: 4px;
     }
     .first_menu li p {
     	display: inline-block;
@@ -31,21 +46,30 @@
     }
 
     .second_menu {
+    	box-shadow: 5px 5px 5px #888888;
+    	position: absolute;
+    	margin-left: 160px;
     	display: none;
+    	border: 1px solid #979797;
+    	background: #f1f1f1 url(img/line.png) 24px 0 repeat-y;
+    }
+    .second_menu li{
+    	list-style: none;
     }
     </style>
 </head>
 
 <body>
+	<p style="text-align: center;">自定义多级菜单</p>
     <div id="menu">
         <ul class="first_menu">
-            <li>JavaScript学习</li>
+            <li><strong>JavaScript学习</strong></li>
             <li>
                 <p>第一课</p><span>▶</span>
                 <ul class="second_menu">
                     <li>
                         <p>1.1课</p><span>▶</span>
-                        <ul class="secone_menu">
+                        <ul class="second_menu">
                             <li>1.1.1</li>
                             <li>1.1.1</li>
                             <li>1.1.1</li>
@@ -57,6 +81,11 @@
             </li>
             <li>
                 <p>第二课</p><span>▶</span>
+                <ul class="second_menu">
+                    <li>2.1</li>
+                    <li>2.2</li>
+                    <li>2.3</li>
+                </ul>
             </li>
             <li>
                 <p>第三课</p>

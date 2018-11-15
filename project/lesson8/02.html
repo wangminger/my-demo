@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>自定义滚动条</title>
+	<script type="text/javascript" src="js/02.js"></script>
+	<style type="text/css">
+		body {
+			    background: #3e3e3e;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#wrap {
+			margin: 20px auto;
+			width: 620px;
+			overflow: hidden;
+			height: 200px;
+			position: relative;
+		}
+		#product {
+			width: 1580px;
+			position: absolute;
+			list-style: none;
+			margin: 0;
+			background: white;
+		}
+		#product li{
+			text-align: center;
+			width: 140px;
+   			height: 140px;
+    		border-radius: 10px;
+			margin-left: 20px;
+			float: left;
+			background: black;
+			color: white;
+			cursor: pointer;
+		}
+		#product li img {
+			float: left;
+			border-radius: 8px;
+			margin: 8px;
+		}
+		#product li:first-child {
+			margin-left: 0;
+		}
+		#product li span {
+			float: left;
+			width: 100%;
+			text-align: center;
+			font-size: 14px;
+			display: inline-block;
+		}
+
+		#scrollBar {
+			width: 620px;
+			height: 20px;
+			position: absolute;
+			top: 150px;
+		}
+
+		.barL {
+			width: 30px;
+			height: 19px;
+			background: url(img/apple/03.gif) 0 -19px no-repeat;
+			float: left;
+		}
+		.barM {
+			width: 558px;
+			height: 17px;
+			border: 1px solid #545454;
+			border-left: 0;
+			border-right: 0;
+			background: black;
+			float: left;
+		}
+		.barR {
+			width: 30px;
+			height: 19px;
+			background: url(img/apple/03.gif) -30px 0 no-repeat;
+			float: left;
+		}
+		#scrollBar .bar {
+    		position: absolute;
+    		top: 2px;
+    		left: 22px;
+    		width: 150px;
+    		height: 15px;
+    		cursor: e-resize;
+    		background: url(img/apple/01.gif) repeat-x;
+    		border-radius: 7px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="product">
+			<li>
+				<img src="img/apple/1.jpg">
+				<span>iphone4</span>
+			</li>
+			<li>
+				<img src="img/apple/2.jpg">
+				<span>1231234</span>
+			</li>
+			<li>
+				<img src="img/apple/3.jpg">
+				<span>iphone4</span>
+			</li>
+			<li>
+				<img src="img/apple/4.jpg">
+				<span>iphone4</span>
+			</li>
+			<li>
+				<img src="img/apple/5.jpg">
+				<span>iphone4</span>
+			</li>
+			<li>
+				<img src="img/apple/6.jpg">
+				<span>iphone4</span>
+			</li>
+			<li>
+				<img src="img/apple/7.jpg">
+				<span>iphone4</span>
+			</li>
+			<li>
+				<img src="img/apple/8.jpg">
+				<span>iphone4</span>
+			</li>
+			<li>
+				<img src="img/apple/9.jpg">
+				<span>iphone4</span>
+			</li>
+			<li>
+				<img src="img/apple/10.jpg">
+				<span>iphone4</span>
+			</li>
+		</ul>
+		<div id="scrollBar">
+			<div class="barL"></div>
+			<div class="barM">
+				<div class="bar"></div>
+			</div>
+			<div class="barR"></div>
+		</div>
+	</div>
+</body>
+</html>
