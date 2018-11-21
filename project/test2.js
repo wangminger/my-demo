@@ -91,6 +91,7 @@ test()*/
 
 function mix(s1, s2) {
 	//your code
+	//获取s1和s2字符串的
 	var arr1 = s1.split('').filter(val => {
 		if (val.charCodeAt() >= 97 && val.charCodeAt() <= 122) return val;
 	});
@@ -117,42 +118,68 @@ function mix(s1, s2) {
 	//校对s1和s2的字符串
 	var arr1keys = Object.keys(arr1keysval);
 	var arr2keys = Object.keys(arr2keysval);
-	var arrResult = {};
+	var arrComb = {};
 	arr1keys.forEach(key => {
 		if (arr1keysval[key] === 1) {
 			return;
 		} else {
-			arrResult[key] = [arr1keysval[key], 1];
+			arrComb[key] = [arr1keysval[key], 1];
 		}
 	});
 	arr2keys.forEach(key => {
-		if (arrResult[key] !== undefined) {
-			arrResult[key] = arrResult[key][0] - arr2keysval[key] > 0 ? arrResult[key] : (arrResult[key][0] === arr2keysval[key] ? [arr2keysval[key], '='] : [arr2keysval[key], 2]);
+		if (arrComb[key] !== undefined) {
+			arrComb[key] = arrComb[key][0] - arr2keysval[key] > 0 ? arrComb[key] : (arrComb[key][0] === arr2keysval[key] ? [arr2keysval[key], '='] : [arr2keysval[key], 2]);
 		} else {
 			if (arr2keysval[key] === 1) {
-				return
+				return;
 			} else {
-				arrResult[key] = [arr2keysval[key], 2];
+				arrComb[key] = [arr2keysval[key], 2];
 			}
 		}
 	});
 
 	//输出结果
-	var result = '';
-	for(let i in arrResult) {
-		result += arrResult[i][1] + ':' + i.repeat(arrResult[i][0]) + '/'
+	var resultArr1 = [];
+	var resultArr2 = [];
+	for (let i in arrComb) {
+		//resultArr += arrComb[i][1] + ':' + i.repeat(arrComb[i][0]) + '/'
+		arrComb[i][1] === '=' ? resultArr2.push([i, arrComb[i]]) : resultArr1.push([i, arrComb[i]]);
+	}
+	//对结果字符串排序
+	resultArr1.sort((val1, val2) => {
+		return val1[1][0] - val2[1][0] > 0 ? -(val1[1][0] - val2[1][0]) : (val1[1][0] - val2[1][0] < 0 ? -(val1[1][0] - val2[1][0]) : (val1[0].charCodeAt() - val2[0].charCodeAt()));
+	});
+	resultArr2.sort((val1, val2) => {
+		return val1[1][0] - val2[1][0] > 0 ? -(val1[1][0] - val2[1][0]) : (val1[1][0] - val2[1][0] < 0 ? -(val1[1][0] - val2[1][0]) : (val1[0].charCodeAt() - val2[0].charCodeAt()));
+	});
+	var resultStr = '';
+	for (let i in resultArr1) {
+		if (i < resultArr1.length - 1) {
+			resultStr += resultArr1[i][1][1] + ':' + resultArr1[i][0].repeat(resultArr1[i][1][0]) + '/';
+		} else {
+			resultStr += resultArr1[i][1][1] + ':' + resultArr1[i][0].repeat(resultArr1[i][1][0]);
+			resultArr2.length === 0 ? '' : resultStr += '/';
+		}
+	}
+	for (let i in resultArr2) {
+		if (i < resultArr2.length - 1) {
+			resultStr += resultArr2[i][1][1] + ':' + resultArr2[i][0].repeat(resultArr2[i][1][0]) + '/';
+		} else {
+			resultStr += resultArr2[i][1][1] + ':' + resultArr2[i][0].repeat(resultArr2[i][1][0]);
+		}
 	}
 
-
-	console.log(result)
-	console.log(arrResult)
+	console.log(resultStr)
+	console.log(resultArr1)
+	console.log(resultArr2)
+	console.log(arrComb)
 	console.log(arr1keys);
 	console.log(arr2keys);
 	console.log(arr1keysval);
 	console.log(arr2keysval);
 }
 mix("Are they here", "yes, they are here")
-
+//mix("looping is fun but dangerous", "less dangerous than coding")
 /*var a = {
 	foo: '123',
 	asd: '34123'
